@@ -1,20 +1,46 @@
-from app.utils.config import settings
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy import create_engine
 from app.models import User
+from app.db.connection_engine import session_engine
+from typing import Optional
 
-database_url = settings.DB_URL
 
 class CrudUser:
 
-    def __init__(self):
-        engine = create_engine(database_url)
-        self.active_session = sessionmaker(engine)
-        self.__open_db_session__()
+    @staticmethod
+    def create_user(name: str, age: int) -> bool:
+        db = None
+        try:
+            db = session_engine()
+            new_user_object = User(name=name, age=age)
+            db.add(new_user_object)
+            db.commit()
+            db.flush()
+            return True
+        except:
+            return False
+        finally:
+            db.close()
 
-    def __open_db_session__(self):
-        self.open_session = self.active_session()
+    @staticmethod
+    def query_user_by_name(name: str)-> Optional[User]:
+        db = None
+        try:
+            db = session_engine()
+            return db.query(User).filter(User.name == name).first()
+        except:
+            return None
+        finally:
+            db.close()
 
-    def close_session(self):
-        self.open_session.close()
+    @staticmethod
+    def query_all_users()-> Optional[User]:
+        db = None
+        try:
+            db = session_engine()
+            return db.query(User).all()
+        except:
+            return None
+        finally:
+            db.close()
 
+
+user_crud_class = CrudUser
