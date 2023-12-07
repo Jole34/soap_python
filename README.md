@@ -13,6 +13,7 @@
 ```commandline
 
 - pip install -r requirements.txt
+start main.py script
 
 ```
 
@@ -35,3 +36,8 @@ We use sqlite for demo purpose because of small memory usage and easy install,
 any ORM - rel database can be connected
 
 oracle+cx_oracle://<username>:<password>@<host>:<port>/<service_name_or_sid>
+
+
+#NOTE
+Spyne can't use uvicorn services cus it does not uses async http 
+(asgi)
