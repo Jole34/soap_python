@@ -14,6 +14,8 @@ class UserService(ServiceBase):
     @rpc(String,_returns=Unicode)
     def get_user_by_name(ctx, name):
         print("Query called")
+        print('change requsted')
+        user_object = user_crud_class.query_user_by_name(name=name)
         user_response = 'NAN' if not user_object else user_object.name
         return user_response
 

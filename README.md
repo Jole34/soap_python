@@ -10,18 +10,21 @@
 ### Run project
 
 
-```commandline
 
+```commandline
 - pip install -r requirements.txt
-start main.py script
+- alembic init
+- populate alembic with correct path db info
+- start main.py script (if make server used)
+- hupper -m waitress --port=8000  main:app (if flask used)
 
 ```
 
-
 ### DB MIGRATIONS
---  alembic revision --autogenerate -m "Init"
 ```commandline
-Alembic revision creates new version migration with -m message (name of migration),
+-  alembic revision --autogenerate -m "Init"
+
+  Alembic revision creates new version migration with -m message (name of migration),
 --autogenerate (automatically regarding models)
 
 - alembig upgrade head (applies migration to the DB)
