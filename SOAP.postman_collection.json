@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "b637c58b-e4a0-451d-837e-28cc2ddf25e3",
+		"name": "SOAP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31274423"
+	},
+	"item": [
+		{
+			"name": "Get Users",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n                  xmlns:web=\"http://127.0.0.1:8000\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <web:get_user_by_name>\r\n            <web:name>jovan</web:name>\r\n      </web:get_user_by_name>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n                  xmlns:web=\"http://127.0.0.1:8000\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <web:update_user>\r\n         <web:user_data>\r\n            <name>Value1</name>\r\n            <age>Value2</age >\r\n         </web:user_data>\r\n      </web:update_user>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>\r\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n                  xmlns:web=\"http://127.0.0.1:8000\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <web:create_new_user>\r\n            <web:name>dragan</web:name>\r\n            <web:age>26</web:age>\r\n            <web:email>jovan.glavonjic@vizlore.com</web:email>\r\n      </web:create_new_user>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000"
+				}
+			},
+			"response": []
+		}
+	]
+}
