@@ -36,5 +36,12 @@ class UserService(ServiceBase):
             return {"error": "Korisnik nije lepo azuriran"}
         return UserToReturn(**user_updated.__dict__).dict()
 
+    @rpc(String, _returns=Unicode)
+    def delete_user(ctx, email):
+        print(email)
+        user_deleted = user_crud_class.delete_user_object(email=email)
+        if not user_deleted:
+            return "Nismo uspesno obrisali korisnika"
+        return "Korisnik je uspesno obrisan"
 
 user_service = UserService

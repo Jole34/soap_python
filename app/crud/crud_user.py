@@ -68,6 +68,22 @@ class CrudUser:
         finally:
             db.close()
 
+    @staticmethod
+    def delete_user_object(email: str) -> bool:
+        db = None
+        try:
+            db = session_engine()
+            user_object = db.query(User).filter(User.email == email).first()
+            if not user_object:
+                return True
+            db.delete(user_object)
+            db.commit()
+        except:
+            return False
+        finally:
+            db.close()
+
+
 
 
 user_crud_class = CrudUser
