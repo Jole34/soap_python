@@ -2,8 +2,21 @@ from spyne import ServiceBase, rpc, Unicode, String, Integer, AnyDict
 from app.schemas import UserToReturn
 from app.crud import user_crud_class
 
+"""
 
+ServiceBase klasa je osnovna klasa koja se nasledjuje kako bi se kreirao SOAP servis pomocu Spyne-a.
+Ova klasa definise okvir servisa i metode koje ce biti dostupne putem SOAP protokola. 
+
+"""
 class UserService(ServiceBase):
+
+    """
+
+    RPC (Remote Procedure Call)
+    U kontekstu Spyne-a, rpc dekorator se koristi za oznavavanje metoda koje ce biti dostupne putem SOAP servisa.
+    Parametri dekoratora, kao što su _returns ili argumenti metoda, definisu tipove podataka koji se koriste u
+    komunikaciji izmedju klijenta i servisa.
+    """
     @rpc(_returns=Unicode)
     def get_users_all(ctx):
         list_of_users = user_crud_class.query_all_users()

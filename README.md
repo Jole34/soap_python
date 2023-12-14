@@ -1,4 +1,17 @@
 ## Soap python service
+
+SOAP (Simple Object Access Protocol) je protokol za razmenu 
+strukturiranih informacija u distribuiranim računarskim 
+sistemima. Koristi XML za formatiranje poruka i HTTP protokol
+za prenos tih poruka. SOAP servisi omogućavaju komunikaciju između različitih sistema
+putem standardizovanog i interoperabilnog formata poruka.
+
+Spyne je Python biblioteka koja olakšava implementaciju
+SOAP servisa. Omogućava definisanje servisa, metoda,
+tipova podataka i protokola na jednostavan način.
+Spyne generiše WSDL (Web Services Description Language) dokument koji opisuje strukturu i funkcionalnosti servisa, što omogućava kompatibilnost između različitih tehnologija.
+
+
 ### Project structure
 - alembic (alembic data with versions)
 - app (application inside logic)
@@ -20,7 +33,16 @@
 
 ```
 
+Nakon pokretanja wsd dokument je dostupan na:
+
+```python
+http://127.0.0.1:8000?wsdl
+```
+
 ### DB MIGRATIONS
+
+Alat alembic je koriscen za migracije.
+ALembic init fajl sadrzi url za konekciju na bazu (drajver, informacije)
 ```commandline
 -  alembic revision --autogenerate -m "Init"
 

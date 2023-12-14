@@ -2,13 +2,14 @@ from app.models import User
 from app.db.connection_engine import session_engine
 from typing import Optional, List
 
-
+# Krud operacije nad bazom
 class CrudUser:
 
     @staticmethod
     def create_user(name: str, age: int, email: str) -> bool:
         db = None
         try:
+            # Nova otvorena konekcija
             db = session_engine()
             new_user_object = User(name=name, age=age, email=email)
             db.add(new_user_object)
