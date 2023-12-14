@@ -62,7 +62,26 @@ any ORM - rel database can be connected
 
 oracle+cx_oracle://<username>:<password>@<host>:<port>/<service_name_or_sid>
 
+```
 
 #NOTE
 Spyne can't use uvicorn services cus it does not uses async http 
 (asgi)
+
+
+Spyne biblioteka dokumentacija:
+http://spyne.io/#inprot=HttpRpc&outprot=JsonDocument&s=rpc&tpt=WsgiApplication&validator=true
+
+(nudi vam step by step tutorijale a i opis kako radi)
+
+
+
+Alembic dokumentacija:
+
+https://alembic.sqlalchemy.org/en/latest/
+
+
+
+Sql alch:
+
+https://docs.sqlalchemy.org/en/20/
