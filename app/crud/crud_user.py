@@ -16,7 +16,8 @@ class CrudUser:
             db.commit()
             db.flush()
             return True
-        except:
+        except Exception as e:
+            print(e)
             return False
         finally:
             db.close()
