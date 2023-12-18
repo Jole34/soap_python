@@ -18,6 +18,7 @@ class CrudUser:
             return True
         except Exception as e:
             print(e)
+            print('here')
             return False
         finally:
             db.close()
